@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { View, Text, Alert } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { useCameraLogic, checkAllPermissions } from '../lib/camera';
@@ -9,15 +9,15 @@ import { Camera, Mic, Images } from 'lucide-react-native';
 export default function Index() {
   const { cameraPermission, mediaPermission, requestPermissions } = useCameraLogic();
 
-  useEffect(() => {
-    checkPermissions();
-  }, []);
-
-  const checkPermissions = async () => {
+  const checkPermissions = useCallback(async () => {
     if (!checkAllPermissions(cameraPermission, mediaPermission)) {
       // Permisos no concedidos, se mostrara la pantalla de permisos
     }
-  };
+  }, [cameraPermission, mediaPermission]);
+
+  useEffect(() => {
+    checkPermissions();
+  }, [checkPermissions]);
 
   const handleRequestPermissions = async () => {
     const granted = await requestPermissions();
