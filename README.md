@@ -1,53 +1,127 @@
-> Edited for use in IDX on 07/09/12
+# 🐾 Pawder
 
-# Welcome to your Expo app 👋
+**Pawder** es una aplicación móvil de adopción de mascotas con una interfaz intuitiva tipo Tinder. Toma fotos de mascotas, revísalas con gestos de deslizamiento y gestiona tu perfil de adopción.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## ✨ Características Principales
 
-## Get started
+- 📸 **Cámara Integrada**: Captura fotos de mascotas directamente desde la app
+- 👆 **Gestos de Deslizamiento**: 
+  - Desliza a la derecha para guardar fotos en tu galería
+  - Desliza a la izquierda para descartar fotos
+- 🖼️ **Galería de Fotos**: Visualiza y gestiona todas las fotos capturadas
+- 👤 **Perfil de Usuario**: Configura tus preferencias de adopción
+  - Tipo de mascota (Perros, Gatos, etc.)
+  - Edad preferida
+  - Radio de búsqueda
+- 📊 **Estadísticas**: Seguimiento de likes, matches y mascotas adoptadas
+- 📳 **Retroalimentación Háptica**: Respuesta táctil para una mejor experiencia de usuario
 
-#### Android
+## 🚀 Comenzar
 
-Android previews are defined as a `workspace.onStart` hook and started as a vscode task when the workspace is opened/started.
+### Prerequisitos
 
-Note, if you can't find the task, either:
-- Rebuild the environment (using command palette: `IDX: Rebuild Environment`), or
-- Run `npm run android -- --tunnel` command manually run android and see the output in your terminal. The device should pick up this new command and switch to start displaying the output from it.
+- Node.js instalado
+- Expo CLI
+- Un dispositivo móvil con Expo Go o un emulador Android/iOS
 
-In the output of this command/task, you'll find options to open the app in a
+### Instalación
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You'll also find options to open the app's developer menu, reload the app, and more.
-
-#### Web
-
-Web previews will be started and managred automatically. Use the toolbar to manually refresh.
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+1. Clona el repositorio:
 ```bash
-npm run reset-project
+git clone https://github.com/johnp-05/pawder.git
+cd pawder
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Instala las dependencias:
+```bash
+npm install
+```
 
-## Learn more
+3. Inicia la aplicación:
+```bash
+npm start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### Ejecutar en Android
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+npm run android
+```
 
-## Join the community
+Para IDX, los previews de Android se inician automáticamente como una tarea de VS Code. Si no encuentras la tarea:
+- Reconstruye el entorno usando la paleta de comandos: `IDX: Rebuild Environment`, o
+- Ejecuta manualmente: `npm run android -- --tunnel`
 
-Join our community of developers creating universal apps.
+### Ejecutar en iOS
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+npm run ios
+```
+
+### Ejecutar en Web
+
+```bash
+npm run web
+```
+
+Los previews web se inician y gestionan automáticamente en IDX.
+
+## 🛠️ Tecnologías
+
+- **React Native** - Framework de desarrollo móvil
+- **Expo** - Plataforma y conjunto de herramientas
+- **Expo Router** - Enrutamiento basado en archivos
+- **NativeWind** - Tailwind CSS para React Native
+- **Expo Camera** - API de cámara
+- **Expo Media Library** - Gestión de galería de fotos
+- **Zustand** - Gestión de estado
+- **Lucide React Native** - Iconos
+- **TypeScript** - Tipado estático
+
+## 📱 Permisos Requeridos
+
+La aplicación requiere los siguientes permisos:
+- 📷 **Cámara**: Para tomar fotos de mascotas
+- 🎤 **Micrófono**: Para funcionalidad de cámara completa
+- 🖼️ **Galería**: Para guardar y acceder a fotos
+
+## 📂 Estructura del Proyecto
+
+```
+pawder/
+├── app/                    # Pantallas principales (enrutamiento)
+│   ├── (tabs)/            # Navegación por pestañas
+│   │   └── profile.tsx    # Pantalla de perfil
+│   ├── index.tsx          # Pantalla principal (cámara)
+│   └── gallery.tsx        # Galería de fotos
+├── components/            # Componentes reutilizables
+│   ├── atoms/            # Componentes básicos
+│   ├── molecules/        # Componentes compuestos
+│   └── organisms/        # Componentes complejos
+├── lib/                  # Lógica de negocio y utilidades
+└── assets/              # Imágenes, fuentes, etc.
+```
+
+## 🎨 Características de UI/UX
+
+- Diseño moderno con tema oscuro
+- Animaciones suaves y transiciones
+- Retroalimentación háptica en interacciones
+- Interfaz intuitiva tipo swipe
+- Diseño responsive
+
+## 🤝 Contribuir
+
+Las contribuciones son bienvenidas. Por favor, abre un issue primero para discutir los cambios que te gustaría realizar.
+
+## 📄 Licencia
+
+Este proyecto es de uso privado.
+
+## 👨‍💻 Autor
+
+Desarrollado con ❤️ para mascotas
+
+---
+
+**Versión**: 1.0.0
