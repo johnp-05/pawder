@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 import React, { useRef } from 'react';
 import { Alert, View } from 'react-native';
 import { useCameraLogic } from '../../lib/camera';
-import { CameraControls } from '../molecules/CameraControls';
+import { CameraControl } from '../molecules/CameraControl';
 
 export const CameraView: React.FC = () => {
   const cameraRef = useRef<any>(null);
@@ -47,8 +47,8 @@ export const CameraView: React.FC = () => {
         facing={facing}
       />
       
-      <View className="absolute bottom-0 left-0 right-0">
-        <CameraControls
+     <View className="absolute bottom-0 left-0 right-0">
+        <CameraControl
           onCapture={handleCapture}
           onFlip={handleFlip}
           onViewGallery={handleViewGallery}

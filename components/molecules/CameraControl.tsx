@@ -10,7 +10,7 @@ interface CameraControlsProps {
   photoCount: number;
 }
 
-export const CameraControls: React.FC<CameraControlsProps> = ({
+export const CameraControl: React.FC<CameraControlsProps> = ({
   onCapture,
   onFlip,
   onViewGallery,
@@ -39,3 +39,5 @@ export const CameraControls: React.FC<CameraControlsProps> = ({
     </View>
   );
 };
+
+export default CameraControl;
