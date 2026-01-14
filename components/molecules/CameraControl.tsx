@@ -34,7 +34,6 @@ export const CameraControl: React.FC<CameraControlsProps> = ({
       <IconButton
         icon={SwitchCamera}
         onPress={onFlip}
-        onLongPress={() => console.log('Long press: More options')}
       />
     </View>
   );

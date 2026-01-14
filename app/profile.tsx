@@ -30,8 +30,6 @@ export default function ProfileScreen() {
         </View>
 
         {/* Profile Card */}
-        {/* Nota: React Native no soporta gradientes de forma nativa en el prop style. 
-            Se usa un color sólido o se requiere la librería expo-linear-gradient */}
         <View style={styles.profileCard}>
           <View style={styles.profileRow}>
             <View style={styles.profileInfo}>
@@ -141,7 +139,8 @@ const styles = StyleSheet.create({
   profileCard: {
     marginHorizontal: 24,
     marginBottom: 24,
-    backgroundColor: '#9333EA', // Color sólido de reemplazo para el gradiente
+    // Nota: Color sólido usado en lugar de gradiente. Para gradientes, usar expo-linear-gradient
+    backgroundColor: '#9333EA',
     borderRadius: 24,
     padding: 24,
     shadowColor: "#000",
