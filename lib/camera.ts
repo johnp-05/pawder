@@ -20,7 +20,7 @@ export const useCameraLogic = () => {
     setFacing(current => (current === 'back' ? 'front' : 'back'));
   };
 
-  const takePicture = async (cameraRef: any) => {
+  const takePicture = async (cameraRef: any): Promise<PhotoData | null> => {
     if (!cameraRef) return null;
 
     try {
@@ -44,7 +44,7 @@ export const useCameraLogic = () => {
     }
   };
 
-  const saveToGallery = async (uri: string) => {
+  const saveToGallery = async (uri: string): Promise<boolean> => {
     try {
       if (!mediaPermission?.granted) {
         const { granted } = await requestMediaPermission();
@@ -62,11 +62,11 @@ export const useCameraLogic = () => {
     }
   };
 
-  const deletePhoto = (id: string) => {
+  const deletePhoto = (id: string): void => {
     setPhotos(prev => prev.filter(photo => photo.id !== id));
   };
 
-  const requestPermissions = async () => {
+  const requestPermissions = async (): Promise<boolean> => {
     const cameraResult = await requestCameraPermission();
     const mediaResult = await requestMediaPermission();
     return cameraResult.granted && mediaResult.granted;
@@ -85,6 +85,6 @@ export const useCameraLogic = () => {
   };
 };
 
-export const checkAllPermissions = (cameraPermission: any, mediaPermission: any) => {
+export const checkAllPermissions = (cameraPermission: any, mediaPermission: any): boolean => {
   return cameraPermission?.granted && mediaPermission?.granted;
 };

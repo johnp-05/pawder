@@ -15,7 +15,7 @@ export default function Index() {
 
   const checkPermissions = async () => {
     if (!checkAllPermissions(cameraPermission, mediaPermission)) {
-      // Permisos no concedidos, se mostrara la pantalla de permisos
+      // Permissions not granted yet, will show permission request screen
     }
   };
 
