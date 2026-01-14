@@ -11,6 +11,9 @@ const ROTATION_DIVISOR = 20;
 const SPRING_DAMPING = 20;
 const MIN_VELOCITY = 500;
 const EXIT_DISTANCE = 500;
+const MIN_PINCH_SCALE = 0.5;
+const MAX_PINCH_SCALE = 3;
+const DEFAULT_SCALE = 1;
 
 export interface SwipeConfig {
   onSwipeLeft?: () => void;
@@ -83,14 +86,14 @@ export const useSwipeGesture = (config: SwipeConfig) => {
 };
 
 export const usePinchGesture = () => {
-  const scale = useSharedValue(1);
+  const scale = useSharedValue(DEFAULT_SCALE);
   
   const pinchGesture = Gesture.Pinch()
     .onUpdate((event) => {
-      scale.value = Math.max(0.5, Math.min(event.scale, 3));
+      scale.value = Math.max(MIN_PINCH_SCALE, Math.min(event.scale, MAX_PINCH_SCALE));
     })
     .onEnd(() => {
-      scale.value = withSpring(1);
+      scale.value = withSpring(DEFAULT_SCALE);
     });
 
   const animatedStyle = useAnimatedStyle(() => ({
