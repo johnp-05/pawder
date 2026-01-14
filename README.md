@@ -94,22 +94,29 @@ Estos permisos se solicitan automáticamente al iniciar la aplicación por prime
 
 ```
 pawder/
-├── app/                    # Rutas y pantallas de la app
-│   ├── (tabs)/            # Navegación por pestañas
-│   │   └── profile.tsx    # Pantalla de perfil
-│   ├── _layout.tsx        # Layout principal
-│   ├── index.tsx          # Pantalla inicial (cámara)
-│   └── gallery.tsx        # Galería de fotos
-├── components/            # Componentes reutilizables
-│   ├── atoms/            # Componentes básicos
-│   ├── molecules/        # Componentes compuestos
-│   └── organisms/        # Componentes complejos
-├── lib/                  # Lógica y utilidades
-│   ├── camera.ts        # Lógica de la cámara
-│   ├── store.ts         # Estado global (Zustand)
-│   └── swipe.ts         # Gestos de swipe
-└── assets/              # Imágenes e íconos
-
+├── app/                        # Rutas y pantallas de la app
+│   ├── (tabs)/                 # Navegación por pestañas
+│   │   └── profile.tsx         # Pantalla de perfil de usuario
+│   ├── _layout.tsx             # Layout principal de la app
+│   ├── index.tsx               # Pantalla inicial (cámara)
+│   └── gallery.tsx             # Galería de fotos capturadas
+├── components/                 # Componentes reutilizables
+│   ├── atoms/                  # Componentes básicos
+│   │   ├── Button.tsx          # Botón principal
+│   │   └── IconButton.tsx      # Botón con icono
+│   ├── molecules/              # Componentes compuestos
+│   │   ├── CameraControl.tsx   # Controles de la cámara
+│   │   └── PhotoCard.tsx       # Tarjeta de foto
+│   └── organisms/              # Componentes complejos
+│       ├── CameraView.tsx      # Vista completa de cámara
+│       └── GalleryView.tsx     # Vista completa de galería
+├── lib/                        # Lógica y utilidades
+│   ├── camera.ts               # Lógica de la cámara y permisos
+│   ├── store.ts                # Estado global (Zustand)
+│   └── swipe.ts                # Gestos de swipe y animaciones
+├── assets/                     # Recursos estáticos
+│   └── images/                 # Imágenes e íconos de la app
+└── ...                         # Archivos de configuración
 ```
 
 ## 🛠️ Scripts Disponibles
