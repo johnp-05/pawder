@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { View, FlatList, Alert, Text } from 'react-native';
+import { View, FlatList, Alert, Text, Dimensions } from 'react-native';
 import { PhotoCard } from '../molecules/PhotoCard';
 import { useCameraLogic } from '../../lib/camera';
 import * as Haptics from 'expo-haptics';
 import { Camera } from 'lucide-react-native';
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export const GalleryView: React.FC = () => {
   const { photos, saveToGallery, deletePhoto } = useCameraLogic();
@@ -56,7 +58,7 @@ export const GalleryView: React.FC = () => {
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         renderItem={({ item, index }) => (
-          <View className="flex-1 justify-center items-center px-5" style={{ width: 375 }}>
+          <View className="flex-1 justify-center items-center px-5" style={{ width: SCREEN_WIDTH }}>
             {index === currentIndex && (
               <PhotoCard
                 photo={item}

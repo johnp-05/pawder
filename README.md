@@ -1,53 +1,142 @@
-> Edited for use in IDX on 07/09/12
+# Pawder 🐾
 
-# Welcome to your Expo app 👋
+Pawder is a mobile application for pet adoption that uses a swipe-based interface similar to modern dating apps. Users can browse through pet profiles, swipe right to save their favorites, or swipe left to pass, making the pet adoption process more engaging and intuitive.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Features
 
-## Get started
+- 📸 **Camera Integration**: Take photos of pets directly within the app
+- 🔄 **Swipe Interface**: Intuitive swipe gestures to like or pass on pets
+- 📱 **Modern UI**: Beautiful, responsive design with Tailwind CSS
+- 🎨 **Interactive Gallery**: Review captured photos with swipe-to-save or swipe-to-delete functionality
+- 👤 **User Profile**: Manage adoption preferences and view statistics
+- 🔐 **Permission Management**: Seamless camera and media library permission handling
+
+## Tech Stack
+
+- **Framework**: [Expo](https://expo.dev) with React Native
+- **Navigation**: Expo Router with file-based routing
+- **Styling**: NativeWind (TailwindCSS for React Native)
+- **Animations**: React Native Reanimated & Gesture Handler
+- **State Management**: Zustand
+- **Icons**: Lucide React Native
+- **Language**: TypeScript
+
+## Get Started
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+- Expo Go app on your mobile device (for testing)
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/johnp-05/pawder.git
+cd pawder
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm start
+```
+
+### Running the App
 
 #### Android
 
-Android previews are defined as a `workspace.onStart` hook and started as a vscode task when the workspace is opened/started.
+```bash
+npm run android
+```
 
-Note, if you can't find the task, either:
-- Rebuild the environment (using command palette: `IDX: Rebuild Environment`), or
-- Run `npm run android -- --tunnel` command manually run android and see the output in your terminal. The device should pick up this new command and switch to start displaying the output from it.
+#### iOS
 
-In the output of this command/task, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You'll also find options to open the app's developer menu, reload the app, and more.
+```bash
+npm run ios
+```
 
 #### Web
 
-Web previews will be started and managred automatically. Use the toolbar to manually refresh.
+```bash
+npm run web
+```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+You can also scan the QR code with the Expo Go app on your mobile device to run the app.
 
-## Get a fresh project
+## Project Structure
 
-When you're ready, run:
+```
+pawder/
+├── app/                    # App screens (file-based routing)
+│   ├── (tabs)/            # Tab navigation screens
+│   │   └── profile.tsx    # User profile screen
+│   ├── _layout.tsx        # Root layout
+│   ├── gallery.tsx        # Photo gallery screen
+│   └── index.tsx          # Home/Camera screen
+├── components/            # Reusable components
+│   ├── atoms/            # Basic UI components
+│   ├── molecules/        # Composite components
+│   └── organisms/        # Complex components
+├── lib/                  # Utility functions and hooks
+│   ├── camera.ts         # Camera logic and permissions
+│   ├── store.ts          # Global state management
+│   └── swipe.ts          # Swipe gesture logic
+└── assets/              # Images and static resources
+```
+
+## Key Features Explained
+
+### Camera View
+The camera view allows users to take photos with front and back camera support. It includes haptic feedback for a better user experience.
+
+### Gallery View
+Photos can be reviewed using an intuitive swipe interface:
+- **Swipe Right**: Save photo to gallery
+- **Swipe Left**: Delete photo
+- Visual indicators show the action being performed
+
+### Profile Screen
+Displays user information, adoption preferences, and app settings. Features include:
+- User statistics (likes, matches, adoptions)
+- Adoption preferences
+- Settings and configuration options
+
+## Development
+
+### Linting
+
+```bash
+npm run lint
+```
+
+### Reset Project
+
+To start with a fresh project structure:
 
 ```bash
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Contributing
 
-## Learn more
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-To learn more about developing your project with Expo, look at the following resources:
+## License
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+This project is private and maintained by [Jhon Pambi](https://github.com/johnp-05).
 
-## Join the community
+## Acknowledgments
 
-Join our community of developers creating universal apps.
+- Built with [Expo](https://expo.dev)
+- Styled with [NativeWind](https://www.nativewind.dev)
+- Icons by [Lucide](https://lucide.dev)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+Made with ❤️ for pets

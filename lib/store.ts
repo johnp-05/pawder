@@ -13,9 +13,6 @@ interface AppState {
   clearPhotos: () => void;
 }
 
-// Nota: Zustand no está instalado, usaremos Context en su lugar
-// Este es un ejemplo de cómo se estructuraría con Zustand
-
 export const useAppStore = create<AppState>((set) => ({
   photos: [],
   savedPhotos: [],

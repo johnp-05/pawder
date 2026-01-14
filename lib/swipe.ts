@@ -1,8 +1,16 @@
 import { useSharedValue, useAnimatedStyle, withSpring, runOnJS } from 'react-native-reanimated';
 import { Gesture } from 'react-native-gesture-handler';
+import { Dimensions } from 'react-native';
 
-export const SWIPE_THRESHOLD = 100; // Umbral de 100px como indica el documento
-export const SCREEN_WIDTH = 375; // Se ajustará dinámicamente
+const SCREEN_WIDTH = Dimensions.get('window').width;
+export const SWIPE_THRESHOLD = 100;
+const SCALE_FACTOR = 1000;
+const OPACITY_FACTOR = 500;
+const VERTICAL_MOVEMENT_REDUCTION = 0.3;
+const ROTATION_DIVISOR = 20;
+const SPRING_DAMPING = 20;
+const MIN_VELOCITY = 500;
+const EXIT_DISTANCE = 500;
 
 export interface SwipeConfig {
   onSwipeLeft?: () => void;
@@ -21,31 +29,27 @@ export const useSwipeGesture = (config: SwipeConfig) => {
   const panGesture = Gesture.Pan()
     .onUpdate((event) => {
       translateX.value = event.translationX;
-      translateY.value = event.translationY * 0.3; // Movimiento vertical reducido
+      translateY.value = event.translationY * VERTICAL_MOVEMENT_REDUCTION;
       
-      // Calcular escala y opacidad basado en distancia
       const distance = Math.abs(event.translationX);
-      scale.value = 1 - distance / 1000;
-      opacity.value = 1 - distance / 500;
+      scale.value = 1 - distance / SCALE_FACTOR;
+      opacity.value = 1 - distance / OPACITY_FACTOR;
     })
     .onEnd((event) => {
       const distance = event.translationX;
       const velocity = event.velocityX;
 
-      // Física del Swipe: < 100px regresa, > 100px ejecuta acción
-      if (Math.abs(distance) > threshold || Math.abs(velocity) > 500) {
-        // Ejecutar acción
+      if (Math.abs(distance) > threshold || Math.abs(velocity) > MIN_VELOCITY) {
         if (distance > 0 && onSwipeRight) {
-          translateX.value = withSpring(500, { damping: 20 });
+          translateX.value = withSpring(EXIT_DISTANCE, { damping: SPRING_DAMPING });
           opacity.value = withSpring(0);
           runOnJS(onSwipeRight)();
         } else if (distance < 0 && onSwipeLeft) {
-          translateX.value = withSpring(-500, { damping: 20 });
+          translateX.value = withSpring(-EXIT_DISTANCE, { damping: SPRING_DAMPING });
           opacity.value = withSpring(0);
           runOnJS(onSwipeLeft)();
         }
       } else {
-        // Regresar a posición original
         translateX.value = withSpring(0);
         translateY.value = withSpring(0);
         scale.value = withSpring(1);
@@ -58,7 +62,7 @@ export const useSwipeGesture = (config: SwipeConfig) => {
       { translateX: translateX.value },
       { translateY: translateY.value },
       { scale: scale.value },
-      { rotate: `${translateX.value / 20}deg` },
+      { rotate: `${translateX.value / ROTATION_DIVISOR}deg` },
     ],
     opacity: opacity.value,
   }));

@@ -36,7 +36,7 @@ export const CameraView: React.FC = () => {
       Alert.alert('Sin fotos', 'Aun no has tomado ninguna foto.');
       return;
     }
-    router.push('/(tabs)/profile');
+    router.push('/gallery');
   };
 
   return (
