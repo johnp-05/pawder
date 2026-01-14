@@ -229,7 +229,7 @@ Las contribuciones son bienvenidas. Por favor:
 
 ## 📄 Licencia
 
-Este proyecto es privado y está en desarrollo activo.
+Este proyecto está en desarrollo activo. Para uso, modificación o distribución, contacta al autor.
 
 ## 👤 Autor
 
