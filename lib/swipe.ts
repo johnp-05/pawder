@@ -1,8 +1,6 @@
 import { useSharedValue, useAnimatedStyle, withSpring, runOnJS } from 'react-native-reanimated';
 import { Gesture } from 'react-native-gesture-handler';
-import { Dimensions } from 'react-native';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
 export const SWIPE_THRESHOLD = 100;
 const SCALE_FACTOR = 1000;
 const OPACITY_FACTOR = 500;
