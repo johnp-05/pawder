@@ -1,53 +1,209 @@
-> Edited for use in IDX on 07/09/12
+# 🐾 Pawder
 
-# Welcome to your Expo app 👋
+> Una aplicación móvil estilo Tinder para capturar y gestionar fotos de mascotas con gestos de swipe
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<p align="center">
+  <img src="./assets/demo.gif" alt="Pawder Demo" width="300"/>
+</p>
 
-## Get started
+## 📱 Características
 
-#### Android
+- 📸 **Captura de fotos** con cámara frontal y trasera
+- 👆 **Gestos de swipe** estilo Tinder para gestionar fotos
+- 💾 **Guardar en galería** deslizando a la derecha
+- 🗑️ **Descartar fotos** deslizando a la izquierda
+- 🎨 **Interfaz moderna** con animaciones fluidas
+- 📊 **Perfil de usuario** con estadísticas
+- 🌙 **Tema oscuro** por defecto
 
-Android previews are defined as a `workspace.onStart` hook and started as a vscode task when the workspace is opened/started.
+## 🎥 Demo
 
-Note, if you can't find the task, either:
-- Rebuild the environment (using command palette: `IDX: Rebuild Environment`), or
-- Run `npm run android -- --tunnel` command manually run android and see the output in your terminal. The device should pick up this new command and switch to start displaying the output from it.
+![Pawder en acción](./assets/demo.gif)
 
-In the output of this command/task, you'll find options to open the app in a
+### Funcionalidades principales:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+1. **Cámara**: Toma fotos con un toque
+2. **Galería**: Revisa tus fotos con gestos intuitivos
+3. **Swipe**: Desliza derecha para guardar, izquierda para descartar
+4. **Perfil**: Ve tus estadísticas y preferencias
 
-You'll also find options to open the app's developer menu, reload the app, and more.
+## 🛠️ Tecnologías
 
-#### Web
+- **[React Native](https://reactnative.dev/)** - Framework móvil multiplataforma
+- **[Expo](https://expo.dev/)** - Plataforma de desarrollo
+- **[TypeScript](https://www.typescriptlang.org/)** - Tipado estático
+- **[NativeWind](https://www.nativewind.dev/)** - Tailwind CSS para React Native
+- **[Reanimated](https://docs.swmansion.com/react-native-reanimated/)** - Animaciones de alto rendimiento
+- **[Expo Camera](https://docs.expo.dev/versions/latest/sdk/camera/)** - API de cámara
+- **[Expo Haptics](https://docs.expo.dev/versions/latest/sdk/haptics/)** - Feedback táctil
+- **[Lucide Icons](https://lucide.dev/)** - Iconos modernos
 
-Web previews will be started and managred automatically. Use the toolbar to manually refresh.
+## 📋 Requisitos previos
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Node.js 18 o superior
+- npm o yarn
+- Expo Go app (para testing en dispositivo físico)
+- Android Studio (para emulador Android) o Xcode (para iOS)
 
-## Get a fresh project
+## 🚀 Instalación
 
-When you're ready, run:
+1. **Clona el repositorio**
+```bash
+git clone https://github.com/tu-usuario/pawder.git
+cd pawder
+```
+
+2. **Instala las dependencias**
+```bash
+npm install
+```
+
+3. **Inicia el proyecto**
+```bash
+npm start
+```
+
+4. **Ejecuta en tu dispositivo**
+
+   - **Android**: Escanea el QR con Expo Go o ejecuta:
+     ```bash
+     npm run android
+     ```
+   
+   - **iOS**: Escanea el QR con la cámara o ejecuta:
+     ```bash
+     npm run ios
+     ```
+
+## 📂 Estructura del proyecto
+
+```
+pawder/
+├── app/                      # Rutas de la aplicación
+│   ├── (tabs)/              # Navegación por tabs
+│   │   ├── _layout.tsx      # Layout de tabs
+│   │   ├── index.tsx        # Pantalla principal (cámara)
+│   │   └── profile.tsx      # Pantalla de perfil
+│   ├── _layout.tsx          # Layout raíz
+│   └── gallery.tsx          # Pantalla de galería
+├── components/              # Componentes reutilizables
+│   ├── atoms/              # Componentes básicos
+│   │   ├── Button.tsx
+│   │   └── IconButton.tsx
+│   ├── molecules/          # Componentes compuestos
+│   │   ├── CameraControl.tsx
+│   │   └── PhotoCard.tsx
+│   └── organisms/          # Componentes complejos
+│       ├── CameraView.tsx
+│       └── GalleryView.tsx
+├── lib/                     # Lógica de negocio
+│   ├── CameraContext.tsx   # Estado global de cámara
+│   ├── camera.ts           # Lógica de cámara
+│   ├── swipe.ts           # Lógica de gestos
+│   └── store.ts           # Store (Zustand)
+├── assets/                  # Recursos estáticos
+├── app.json                # Configuración de Expo
+├── package.json            # Dependencias
+└── README.md              # Este archivo
+```
+
+## 🎨 Arquitectura
+
+El proyecto sigue una arquitectura **Atomic Design** con componentes organizados en:
+
+- **Atoms**: Componentes básicos reutilizables (botones, iconos)
+- **Molecules**: Combinación de atoms (controles de cámara)
+- **Organisms**: Componentes complejos (vista de cámara, galería)
+
+### Estado Global
+
+Utilizamos **React Context** para manejar el estado de la cámara y las fotos de forma compartida entre componentes.
+
+### Gestos
+
+Las animaciones de swipe están implementadas con **React Native Reanimated** y **React Native Gesture Handler** para lograr 60fps.
+
+## 🎯 Cómo usar la app
+
+### 1. Pantalla de Cámara
+- Toca el botón blanco central para tomar una foto
+- Toca el icono de rotación para cambiar entre cámara frontal/trasera
+- Toca el icono de galería para ver tus fotos
+
+### 2. Pantalla de Galería
+- **Desliza a la derecha** (→) para guardar la foto en tu galería
+- **Desliza a la izquierda** (←) para descartar la foto
+- Los sellos "LIKE" y "NOPE" aparecen al deslizar
+
+### 3. Pantalla de Perfil
+- Ve tus estadísticas (likes, matches, adoptados)
+- Configura tus preferencias
+- Accede a la configuración de la app
+
+## 🔧 Scripts disponibles
 
 ```bash
+# Iniciar el servidor de desarrollo
+npm start
+
+# Ejecutar en Android
+npm run android
+
+# Ejecutar en iOS
+npm run ios
+
+# Ejecutar en web
+npm run web
+
+# Linter
+npm run lint
+
+# Resetear el proyecto
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🐛 Troubleshooting
 
-## Learn more
+### La cámara no funciona
+1. Verifica que los permisos estén concedidos
+2. Reinicia la app
+3. Limpia el caché: `expo start -c`
 
-To learn more about developing your project with Expo, look at the following resources:
+### Pantalla negra en la cámara
+- Desinstala la app y vuelve a instalarla
+- Verifica los permisos en Configuración del dispositivo
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Errores de dependencias
+```bash
+rm -rf node_modules
+npm install
+```
 
-## Join the community
+## 📝 Licencia
 
-Join our community of developers creating universal apps.
+Este proyecto está bajo la licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 👥 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📧 Contacto
+
+- GitHub: [@tu-usuario](https://github.com/tu-usuario)
+- Email: tu-email@ejemplo.com
+
+## 🙏 Agradecimientos
+
+- [Expo](https://expo.dev/) por la increíble plataforma
+- [NativeWind](https://www.nativewind.dev/) por hacer Tailwind posible en React Native
+- La comunidad de React Native por su apoyo constante
+
+---
+
+<p align="center">Hecho con ❤️ para mascotas</p>
