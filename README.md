@@ -1,242 +1,209 @@
-# 📸 Pawder - Aplicación de Cámara con Gestos
+# 🐾 Pawder
 
-**Pawder** es una aplicación móvil desarrollada con React Native y Expo que permite tomar fotografías y gestionarlas mediante gestos intuitivos de deslizamiento (swipe). Diseñada con una arquitectura moderna y componentizada, ofrece una experiencia fluida y atractiva.
+> Una aplicación móvil estilo Tinder para capturar y gestionar fotos de mascotas con gestos de swipe
 
-## ✨ Características Principales
+<p align="center">
+  <img src="./assets/demo.gif" alt="Pawder Demo" width="300"/>
+</p>
 
-- 📷 **Captura de Fotos**: Toma fotografías con la cámara frontal o trasera
-- 🔄 **Cambio de Cámara**: Alterna fácilmente entre cámara frontal y trasera
-- 👆 **Gestos de Deslizamiento**: 
-  - Desliza a la derecha para guardar fotos en la galería
-  - Desliza a la izquierda para descartar fotos
-  - Umbral de activación de 100px para mayor control
-- 🎨 **Interfaz Moderna**: Diseño limpio con Tailwind CSS (NativeWind)
-- 💾 **Gestión de Galería**: Organiza y visualiza tus fotos capturadas
-- 🔐 **Permisos Inteligentes**: Solicitud clara de permisos de cámara y galería
-- 📱 **Multiplataforma**: Compatible con iOS, Android y Web
+## 📱 Características
 
-## 🛠️ Tecnologías Utilizadas
+- 📸 **Captura de fotos** con cámara frontal y trasera
+- 👆 **Gestos de swipe** estilo Tinder para gestionar fotos
+- 💾 **Guardar en galería** deslizando a la derecha
+- 🗑️ **Descartar fotos** deslizando a la izquierda
+- 🎨 **Interfaz moderna** con animaciones fluidas
+- 📊 **Perfil de usuario** con estadísticas
+- 🌙 **Tema oscuro** por defecto
 
-### Core
-- **React Native** (v0.83.1) - Framework principal
-- **Expo** (v54) - Plataforma de desarrollo
-- **TypeScript** (v5.9.2) - Tipado estático
-- **Expo Router** (v6) - Navegación basada en archivos
+## 🎥 Demo
 
-### UI & Estilos
-- **NativeWind** (v4.2.1) - Tailwind CSS para React Native
-- **Lucide React Native** (v0.562.0) - Iconografía vectorial
+![Pawder en acción](./assets/demo.gif)
 
-### Gestos & Animaciones
-- **React Native Gesture Handler** (v2.28.0) - Manejo de gestos táctiles
-- **React Native Reanimated** (v4.1.1) - Animaciones fluidas de alto rendimiento
+### Funcionalidades principales:
 
-### Estado & Lógica
-- **Zustand** (v5.0.9) - Gestión de estado global
-- **Expo Camera** (v17) - API de cámara
-- **Expo Media Library** (v18) - Acceso a la galería del dispositivo
+1. **Cámara**: Toma fotos con un toque
+2. **Galería**: Revisa tus fotos con gestos intuitivos
+3. **Swipe**: Desliza derecha para guardar, izquierda para descartar
+4. **Perfil**: Ve tus estadísticas y preferencias
 
-## 📋 Requisitos Previos
+## 🛠️ Tecnologías
 
-- **Node.js** (v18 o superior)
-- **npm** o **yarn**
-- **Expo CLI**: Instalado globalmente o mediante npx
-- Para desarrollo móvil:
-  - **Android**: Android Studio con emulador configurado
-  - **iOS**: Xcode (solo en macOS)
-  - **Dispositivo físico**: Con la app Expo Go instalada
+- **[React Native](https://reactnative.dev/)** - Framework móvil multiplataforma
+- **[Expo](https://expo.dev/)** - Plataforma de desarrollo
+- **[TypeScript](https://www.typescriptlang.org/)** - Tipado estático
+- **[NativeWind](https://www.nativewind.dev/)** - Tailwind CSS para React Native
+- **[Reanimated](https://docs.swmansion.com/react-native-reanimated/)** - Animaciones de alto rendimiento
+- **[Expo Camera](https://docs.expo.dev/versions/latest/sdk/camera/)** - API de cámara
+- **[Expo Haptics](https://docs.expo.dev/versions/latest/sdk/haptics/)** - Feedback táctil
+- **[Lucide Icons](https://lucide.dev/)** - Iconos modernos
+
+## 📋 Requisitos previos
+
+- Node.js 18 o superior
+- npm o yarn
+- Expo Go app (para testing en dispositivo físico)
+- Android Studio (para emulador Android) o Xcode (para iOS)
 
 ## 🚀 Instalación
 
-1. **Clonar el repositorio**
+1. **Clona el repositorio**
 ```bash
-git clone https://github.com/johnp-05/pawder.git
+git clone https://github.com/tu-usuario/pawder.git
 cd pawder
 ```
 
-2. **Instalar dependencias**
+2. **Instala las dependencias**
 ```bash
 npm install
 ```
 
-3. **Iniciar el servidor de desarrollo**
+3. **Inicia el proyecto**
 ```bash
 npm start
 ```
 
-## 📱 Ejecutar la Aplicación
+4. **Ejecuta en tu dispositivo**
 
-### Android
-```bash
-npm run android
-```
-O presiona `a` en el terminal después de `npm start`
+   - **Android**: Escanea el QR con Expo Go o ejecuta:
+     ```bash
+     npm run android
+     ```
+   
+   - **iOS**: Escanea el QR con la cámara o ejecuta:
+     ```bash
+     npm run ios
+     ```
 
-### iOS (solo macOS)
-```bash
-npm run ios
-```
-O presiona `i` en el terminal después de `npm start`
-
-### Web
-```bash
-npm run web
-```
-O presiona `w` en el terminal después de `npm start`
-
-### Dispositivo Físico
-1. Instala **Expo Go** desde:
-   - [Google Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent) (Android)
-   - [App Store](https://apps.apple.com/app/expo-go/id982107779) (iOS)
-2. Escanea el código QR mostrado en el terminal
-
-## 📁 Estructura del Proyecto
+## 📂 Estructura del proyecto
 
 ```
 pawder/
-├── app/                        # Rutas de la aplicación (Expo Router)
-│   ├── index.tsx              # Pantalla principal (cámara)
-│   ├── gallery.tsx            # Galería de fotos
-│   ├── (tabs)/                # Navegación por pestañas
-│   │   └── profile.tsx        # Perfil de usuario
-│   └── _layout.tsx            # Layout principal
-│
-├── components/                # Componentes organizados por Atomic Design
-│   ├── atoms/                 # Componentes básicos reutilizables
-│   │   ├── Button.tsx         # Botón con estilos de NativeWind
-│   │   └── IconButton.tsx     # Botón con icono de Lucide
-│   ├── molecules/             # Componentes compuestos
-│   │   ├── CameraControl.tsx  # Controles de la cámara
-│   │   └── PhotoCard.tsx      # Tarjeta de foto con gestos
-│   └── organisms/             # Componentes complejos
-│       ├── CameraView.tsx     # Vista completa de la cámara
-│       └── GalleryView.tsx    # Vista de galería con swipe
-│
-├── lib/                       # Lógica de negocio y utilidades
-│   ├── camera.ts              # Lógica de cámara y permisos
-│   ├── swipe.ts               # Física de gestos (umbral 100px)
-│   └── store.ts               # Store global con Zustand
-│
-├── assets/                    # Recursos estáticos
-│   └── images/                # Imágenes, iconos y splash screens
-│
-├── .idx/                      # Configuración de IDX
-├── app.json                   # Configuración de Expo
-├── tailwind.config.js         # Configuración de Tailwind/NativeWind
-├── tsconfig.json              # Configuración de TypeScript
-└── package.json               # Dependencias del proyecto
+├── app/                      # Rutas de la aplicación
+│   ├── (tabs)/              # Navegación por tabs
+│   │   ├── _layout.tsx      # Layout de tabs
+│   │   ├── index.tsx        # Pantalla principal (cámara)
+│   │   └── profile.tsx      # Pantalla de perfil
+│   ├── _layout.tsx          # Layout raíz
+│   └── gallery.tsx          # Pantalla de galería
+├── components/              # Componentes reutilizables
+│   ├── atoms/              # Componentes básicos
+│   │   ├── Button.tsx
+│   │   └── IconButton.tsx
+│   ├── molecules/          # Componentes compuestos
+│   │   ├── CameraControl.tsx
+│   │   └── PhotoCard.tsx
+│   └── organisms/          # Componentes complejos
+│       ├── CameraView.tsx
+│       └── GalleryView.tsx
+├── lib/                     # Lógica de negocio
+│   ├── CameraContext.tsx   # Estado global de cámara
+│   ├── camera.ts           # Lógica de cámara
+│   ├── swipe.ts           # Lógica de gestos
+│   └── store.ts           # Store (Zustand)
+├── assets/                  # Recursos estáticos
+├── app.json                # Configuración de Expo
+├── package.json            # Dependencias
+└── README.md              # Este archivo
 ```
 
-## 🎮 Uso de la Aplicación
+## 🎨 Arquitectura
 
-### Captura de Fotos
-1. Abre la aplicación y concede los permisos solicitados
-2. Apunta la cámara y toca el botón de captura
-3. La foto aparecerá en la vista de galería
+El proyecto sigue una arquitectura **Atomic Design** con componentes organizados en:
 
-### Gestión con Gestos
-- **Desliza hacia la derecha (→)**: Guarda la foto en tu galería
-- **Desliza hacia la izquierda (←)**: Descarta la foto
-- **Umbral mínimo**: 100 píxeles de deslizamiento para activar la acción
-- **Feedback visual**: Animaciones de escala, rotación y opacidad
+- **Atoms**: Componentes básicos reutilizables (botones, iconos)
+- **Molecules**: Combinación de atoms (controles de cámara)
+- **Organisms**: Componentes complejos (vista de cámara, galería)
 
-### Cambio de Cámara
-- Toca el botón de alternancia para cambiar entre cámara frontal y trasera
+### Estado Global
 
-## 🔐 Permisos Requeridos
+Utilizamos **React Context** para manejar el estado de la cámara y las fotos de forma compartida entre componentes.
 
-La aplicación solicita los siguientes permisos:
+### Gestos
 
-- **📷 Cámara**: Para capturar fotografías
-- **🎤 Micrófono**: Requerido por la API de cámara (no se graba audio)
-- **🖼️ Galería/Media Library**: Para guardar fotos en el dispositivo
+Las animaciones de swipe están implementadas con **React Native Reanimated** y **React Native Gesture Handler** para lograr 60fps.
 
-Todos los permisos se solicitan de forma clara y con explicaciones en la pantalla inicial.
+## 🎯 Cómo usar la app
 
-## 🧪 Desarrollo
+### 1. Pantalla de Cámara
+- Toca el botón blanco central para tomar una foto
+- Toca el icono de rotación para cambiar entre cámara frontal/trasera
+- Toca el icono de galería para ver tus fotos
 
-### Linting
+### 2. Pantalla de Galería
+- **Desliza a la derecha** (→) para guardar la foto en tu galería
+- **Desliza a la izquierda** (←) para descartar la foto
+- Los sellos "LIKE" y "NOPE" aparecen al deslizar
+
+### 3. Pantalla de Perfil
+- Ve tus estadísticas (likes, matches, adoptados)
+- Configura tus preferencias
+- Accede a la configuración de la app
+
+## 🔧 Scripts disponibles
+
 ```bash
+# Iniciar el servidor de desarrollo
+npm start
+
+# Ejecutar en Android
+npm run android
+
+# Ejecutar en iOS
+npm run ios
+
+# Ejecutar en web
+npm run web
+
+# Linter
 npm run lint
-```
 
-### Reiniciar Proyecto
-Para comenzar con una estructura limpia:
-```bash
+# Resetear el proyecto
 npm run reset-project
 ```
-Esto moverá el código actual a `app-example/` y creará un directorio `app/` vacío.
 
-## 🏗️ Arquitectura
+## 🐛 Troubleshooting
 
-### Patrones de Diseño
-- **Atomic Design**: Componentes organizados en átomos, moléculas y organismos
-- **Hooks Personalizados**: Lógica reutilizable (useCameraLogic, useSwipeGesture)
-- **Estado Global**: Zustand para gestión centralizada del estado
-- **File-based Routing**: Expo Router para navegación automática
+### La cámara no funciona
+1. Verifica que los permisos estén concedidos
+2. Reinicia la app
+3. Limpia el caché: `expo start -c`
 
-### Física de Gestos
-Los gestos de swipe implementan una física realista:
-- Umbral de activación: **100px** (configurable)
-- Animaciones con spring para suavidad natural
-- Feedback visual con escala, rotación y opacidad
-- Velocidad de deslizamiento considerada (>500px/s)
+### Pantalla negra en la cámara
+- Desinstala la app y vuelve a instalarla
+- Verifica los permisos en Configuración del dispositivo
 
-## 📚 Recursos Adicionales
+### Errores de dependencias
+```bash
+rm -rf node_modules
+npm install
+```
 
-- [Documentación de Expo](https://docs.expo.dev/)
-- [Guía de Expo Router](https://docs.expo.dev/router/introduction/)
-- [Documentación de NativeWind](https://www.nativewind.dev/)
-- [React Native Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/)
-- [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/)
+## 📝 Licencia
 
-## 📝 Historial del Proyecto
-
-Este proyecto se desarrolló en fases iterativas:
-
-### Fase Inicial (Enero 2026)
-- Configuración base con Expo y TypeScript
-- Implementación de Tailwind CSS (NativeWind v4)
-- Integración de iconos con Lucide React Native
-
-### Fase de Desarrollo Core
-- **Componentes Atómicos**: Button e IconButton con NativeWind
-- **Lógica de Cámara**: Permisos y captura (lib/camera.ts)
-- **Física de Swipe**: Gestos con umbral de 100px (lib/swipe.ts)
-- **Store Global**: Configuración de Zustand (lib/store.ts)
-
-### Fase de Componentes Complejos (BORRADOR)
-- Implementación de CameraControl y PhotoCard (molecules)
-- Desarrollo de CameraView y GalleryView (organisms)
-- Integración de gestos en la galería
-- Configuración de Babel para animaciones
-
-### Fase Final (borrador 2)
-- Estructura completa del proyecto con todas las pantallas
-- Pantalla de permisos con UI mejorada
-- Galería funcional con instrucciones de uso
-- Perfil de usuario integrado
-- Recursos visuales (iconos, splash screens)
+Este proyecto está bajo la licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
 
 ## 👥 Contribuciones
 
 Las contribuciones son bienvenidas. Por favor:
-1. Haz fork del repositorio
+
+1. Fork el proyecto
 2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'feat: Add some AmazingFeature'`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
 
-## 📄 Licencia
+## 📧 Contacto
 
-Este proyecto está en desarrollo activo. Para uso, modificación o distribución, contacta al autor.
+- GitHub: [@tu-usuario](https://github.com/tu-usuario)
+- Email: tu-email@ejemplo.com
 
-## 👤 Autor
+## 🙏 Agradecimientos
 
-**Jhon Pambi**
-- GitHub: [@johnp-05](https://github.com/johnp-05)
-- Email: johndavispambi05@gmail.com
+- [Expo](https://expo.dev/) por la increíble plataforma
+- [NativeWind](https://www.nativewind.dev/) por hacer Tailwind posible en React Native
+- La comunidad de React Native por su apoyo constante
 
 ---
 
-Desarrollado con ❤️ usando React Native y Expo
+<p align="center">Hecho con ❤️ para mascotas</p>

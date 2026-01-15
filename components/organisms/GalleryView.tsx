@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, FlatList, Alert, Text } from 'react-native';
 import { PhotoCard } from '../molecules/PhotoCard';
-import { useCameraLogic } from '../../lib/camera';
+import { useCameraContext } from '../../lib/CameraContext';
 import * as Haptics from 'expo-haptics';
 import { Camera } from 'lucide-react-native';
 
 export const GalleryView: React.FC = () => {
-  const { photos, saveToGallery, deletePhoto } = useCameraLogic();
+  const { photos, saveToGallery, deletePhoto } = useCameraContext();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleSwipeRight = async () => {
@@ -16,7 +16,7 @@ export const GalleryView: React.FC = () => {
       const saved = await saveToGallery(currentPhoto.uri);
       
       if (saved) {
-        Alert.alert('Guardada', 'Foto guardada en tu galeria');
+        Alert.alert('Guardada', 'Foto guardada en tu galería');
       } else {
         Alert.alert('Error', 'No se pudo guardar la foto');
       }

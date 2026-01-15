@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Stack, useRouter } from 'expo-router';
 import { GalleryView } from '../components/organisms/GalleryView';
 import { IconButton } from '../components/atoms/IconButton';
-import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react-native';
+import { ArrowLeft, Heart, X } from 'lucide-react-native';
 
 export default function GalleryScreen() {
   const router = useRouter();
@@ -16,7 +16,7 @@ export default function GalleryScreen() {
           headerShown: true,
           headerStyle: { backgroundColor: '#111827' },
           headerTintColor: '#FFFFFF',
-          headerTitle: 'Galeria de Fotos',
+          headerTitle: 'Tus Fotos',
           headerLeft: () => (
             <IconButton
               icon={ArrowLeft}
@@ -29,14 +29,34 @@ export default function GalleryScreen() {
       />
       <StatusBar style="light" />
       
-      <View className="py-5 px-5 bg-black/50">
-        <View className="flex-row items-center justify-center gap-2 mb-2">
-          <ChevronLeft size={20} color="#FFFFFF" />
-          <Text className="text-white text-sm">Desliza izquierda para descartar</Text>
-        </View>
-        <View className="flex-row items-center justify-center gap-2">
-          <Text className="text-white text-sm">Desliza derecha para guardar</Text>
-          <ChevronRight size={20} color="#FFFFFF" />
+      {/* Instrucciones mejoradas */}
+      <View className="py-4 px-6 bg-gray-800/90">
+        <Text className="text-white text-center text-base font-semibold mb-3">
+          Desliza las fotos
+        </Text>
+        
+        <View className="flex-row justify-around items-center">
+          <View className="items-center flex-1">
+            <View className="flex-row items-center gap-2 mb-1">
+              <X size={20} color="#EF4444" strokeWidth={2.5} />
+              <Text className="text-red-400 font-bold">Descartar</Text>
+            </View>
+            <Text className="text-gray-400 text-xs text-center">
+              ← Desliza izquierda
+            </Text>
+          </View>
+          
+          <View className="w-px h-12 bg-gray-600" />
+          
+          <View className="items-center flex-1">
+            <View className="flex-row items-center gap-2 mb-1">
+              <Heart size={20} color="#10B981" strokeWidth={2.5} fill="#10B981" />
+              <Text className="text-green-400 font-bold">Guardar</Text>
+            </View>
+            <Text className="text-gray-400 text-xs text-center">
+              Desliza derecha →
+            </Text>
+          </View>
         </View>
       </View>
       
